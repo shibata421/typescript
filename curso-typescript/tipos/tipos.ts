@@ -193,7 +193,7 @@ type Correntista = {
 
 let contaBancaria: ContaBancaria = {
     saldo: 3456,
-    depositar(valor) {
+    depositar(valor: number) {
         this.saldo += valor
     }
 }

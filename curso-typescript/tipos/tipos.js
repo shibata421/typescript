@@ -83,3 +83,66 @@ usuario = {
     nome: 'Maria',
 };
 console.log(usuario);
+let funcionario = {
+    supervisores: ['Supervisor 1', 'Supervisor2'],
+    baterPonto(horas) {
+        return horas <= 8 ? 'Pronto normal' : 'Fora do horário';
+    },
+};
+console.log(funcionario.supervisores);
+console.log(funcionario.baterPonto(1));
+console.log(funcionario.baterPonto(10));
+// Union types
+let nota = 10;
+console.log(`Minha nota é ${nota}!`);
+nota = '10';
+console.log(`Minha nota é ${nota}!`);
+// Checando tipos
+let valor = 30;
+if (typeof valor === 'number') {
+    console.log('é um number');
+}
+else {
+    console.log(typeof valor);
+}
+// never = funcoes sem final bem sucedido
+const falha = (msg) => {
+    // while(true)
+    throw new Error(msg);
+};
+const produto = {
+    nome: 'sabão',
+    preco: -1,
+    validarProduto() {
+        if (!this.nome || this.nome.trim().length === 0)
+            falha('Precisa ter um nome');
+        if (this.preco <= 0)
+            falha('Preco inválido');
+    }
+};
+// produto.validarProduto()
+let altura = 12;
+// altura = null
+let alturaOpcional = 12;
+alturaOpcional = null;
+const contato1 = {
+    nome: 'Fulano',
+    tel1: '98765432',
+    tel2: null
+};
+console.log(contato1.nome);
+console.log(contato1.tel1);
+console.log(contato1.tel2);
+let contaBancaria = {
+    saldo: 3456,
+    depositar(valor) {
+        this.saldo += valor;
+    }
+};
+let correntista = {
+    nome: 'Ana Silva',
+    contaBancaria: contaBancaria,
+    contatos: ['34567890', '98765432']
+};
+correntista.contaBancaria.depositar(3000);
+console.log(correntista);
