@@ -85,3 +85,124 @@ let calculo: (numeroA: number, numberoB: number) => number
 
 calculo = multiplicar
 console.log(calculo(5, 7))
+
+// objetos
+let usuario: { nome: string, idade: number } = {
+    nome: 'João',
+    idade: 27
+}
+
+// usuario = {}
+
+// usuario = {
+//     name: 'Maria',
+//     age: 31
+// }
+
+console.log(usuario)
+
+usuario = {
+    idade: 31,
+    nome: 'Maria',
+}
+
+console.log(usuario)
+
+// alias
+type Funcionario = {
+    supervisores: string[],
+    baterPonto: (horas: number) => string
+}
+
+let funcionario: Funcionario = {
+    supervisores: ['Supervisor 1', 'Supervisor2'],
+    baterPonto(horas: number): string {
+        return horas <= 8 ? 'Pronto normal' : 'Fora do horário'
+    },
+}
+
+console.log(funcionario.supervisores)
+console.log(funcionario.baterPonto(1))
+console.log(funcionario.baterPonto(10))
+
+// Union types
+let nota: number | string = 10
+console.log(`Minha nota é ${nota}!`)
+nota = '10'
+console.log(`Minha nota é ${nota}!`)
+
+// Checando tipos
+let valor = 30
+
+if (typeof valor === 'number') {
+    console.log('é um number')
+} else {
+    console.log(typeof valor)
+}
+
+// never = funcoes sem final bem sucedido
+const falha = (msg: string): never => {
+    // while(true)
+    throw new Error(msg)
+}
+
+const produto = {
+    nome: 'sabão',
+    preco: -1,
+    validarProduto() {
+        if (!this.nome || this.nome.trim().length === 0) falha('Precisa ter um nome')
+        if (this.preco <= 0) falha('Preco inválido')
+    }
+}
+
+// produto.validarProduto()
+
+let altura = 12
+// altura = null
+
+let alturaOpcional: null | number = 12
+alturaOpcional = null
+
+type Contato = {
+    nome: string,
+    tel1: string,
+    tel2: string | null
+}
+
+const contato1: Contato = {
+    nome: 'Fulano',
+    tel1: '98765432',
+    tel2: null
+}
+
+console.log(contato1.nome)
+console.log(contato1.tel1)
+console.log(contato1.tel2)
+
+// Desafio
+type ContaBancaria = {
+    saldo: number,
+    depositar: (valor: number) => void
+}
+
+type Correntista = {
+    nome: string,
+    contaBancaria: ContaBancaria,
+    contatos: string[]
+}
+
+let contaBancaria: ContaBancaria = {
+    saldo: 3456,
+    depositar(valor) {
+        this.saldo += valor
+    }
+}
+
+let correntista: Correntista = { 
+    nome: 'Ana Silva',
+    contaBancaria: contaBancaria,
+    contatos: ['34567890', '98765432']
+}
+
+correntista.contaBancaria.depositar(3000)
+console.log(correntista)
