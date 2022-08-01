@@ -156,33 +156,33 @@ const { primeiroNome, experiencia } = cientista
 console.log(primeiroNome, experiencia)
 
 // Callback
-function esperar3s(callback: (dados: string) => void) {
-    setTimeout(() => {
-        callback('3s depois')
-    }, 3000)
-}
+// function esperar3s(callback: (dados: string) => void) {
+//     setTimeout(() => {
+//         callback('3s depois')
+//     }, 3000)
+// }
 
-esperar3s(resultado => console.log(resultado))
+// esperar3s(resultado => console.log(resultado))
 
-function esperarPromise() {
-    return new Promise((resolve: any) => {
-        setTimeout(() => {
-            setTimeout(() => {
-                resolve('3s depois Promise')
-            }, 3000)
-        })
-    })
-}
+// function esperarPromise() {
+//     return new Promise((resolve: any) => {
+//         setTimeout(() => {
+//             setTimeout(() => {
+//                 resolve('3s depois Promise')
+//             }, 3000)
+//         })
+//     })
+// }
 
-esperarPromise()
-    .then(dado => console.log(dado))
+// esperarPromise()
+//     .then(dado => console.log(dado))
 
-axios.get('https://swapi.dev/api/people/1')
-    .then(res => res.data)
-    .then(personagem => personagem.films)
-    .then(films => {
-        axios.get(films[0])
-            .then(res => res.data)
-            .then(filme => console.log(filme.title))
-    })
-    .catch(res => console.log(res))
+// axios.get('https://swapi.dev/api/people/1')
+//     .then(res => res.data)
+//     .then(personagem => personagem.films)
+//     .then(films => {
+//         axios.get(films[0])
+//             .then(res => res.data)
+//             .then(filme => console.log(filme.title))
+//     })
+//     .catch(res => console.log(res))
