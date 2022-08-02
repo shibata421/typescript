@@ -11,8 +11,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/node": "^18.6.3",
     "axios": "^0.27.2",
     "live-server": "^1.2.2",
+    "systemjs": "^0.21.6",
     "typescript": "^4.7.4"
   }
 }
