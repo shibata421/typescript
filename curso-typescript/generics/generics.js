@@ -67,3 +67,55 @@ class DiferencaEntreDatas extends OperacaoBinaria {
     }
 }
 console.log(new DiferencaEntreDatas(new classes_1.Data(1, 2, 2020), new classes_1.Data(1, 1, 1970)).executar());
+// Desafio Classe fila
+class Fila {
+    constructor(...args) {
+        this.fila = [];
+        this.fila.push(...args);
+    }
+    entrar(...t) {
+        this.fila.push(...t);
+    }
+    proximo() {
+        return this.fila.splice(0, 1)[0];
+    }
+    imprimir() {
+        console.log(this.fila);
+    }
+}
+const fila = new Fila();
+fila.imprimir();
+fila.entrar(1, 2, 3, 4);
+fila.imprimir();
+console.log(fila.proximo());
+fila.imprimir();
+class Mapa {
+    constructor() {
+        this.itens = [];
+    }
+    colocar(itemNovo) {
+        const indice = this.itens.findIndex(i => i.chave === itemNovo.chave);
+        if (indice !== -1)
+            this.itens[indice] = itemNovo;
+        else
+            this.itens.push(itemNovo);
+    }
+    imprimir() {
+        console.log(this.itens);
+    }
+    obter(chave) {
+        return this.itens.find(i => i.chave === chave);
+    }
+    limpar() {
+        this.itens.splice(0, this.itens.length);
+    }
+}
+const mapa = new Mapa();
+mapa.colocar({ chave: 1, valor: 'Pedro' });
+mapa.colocar({ chave: 2, valor: 'Rebeca' });
+mapa.colocar({ chave: 3, valor: 'Maria' });
+mapa.colocar({ chave: 1, valor: 'Gustavo' });
+console.log(mapa.obter(2));
+mapa.imprimir();
+mapa.limpar();
+mapa.imprimir();

@@ -16,5 +16,8 @@
     "live-server": "^1.2.2",
     "systemjs": "^0.21.6",
     "typescript": "^4.7.4"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.5.14"
   }
 }

@@ -29,13 +29,13 @@ class DataEsperta {
 }
 
 const aniversarioEsperto = new DataEsperta(3, 11, 1991)
-aniversario.dia = 4
-console.log(aniversario.dia)
-console.log(aniversario)
+aniversarioEsperto.dia = 4
+console.log(aniversarioEsperto.dia)
+console.log(aniversarioEsperto)
 
 const casamentoEsperto = new DataEsperta // pode omitir os ()
-casamento.ano = 2017
-console.log(casamento)
+casamentoEsperto.ano = 2017
+console.log(casamentoEsperto)
 
 // Desafio produto
 class Produto {
@@ -57,7 +57,7 @@ class Produto {
 
 const produto1 = new Produto("Livro", 50.0, 0.05)
 console.log(produto1.resumo())
-const produto2 = new Produto('Dicionário', 23.54)
+// const produto2 = new Produto('Dicionário', 23.54)
 
 class Carro {
     private velocidadeAtual: number = 0
