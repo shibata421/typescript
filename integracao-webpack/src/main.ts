@@ -6,4 +6,3 @@ console.log(livro.precoComDesconto())
 
 $('body').append(`<h1>${livro.nome}</h1>`)
 $('body').append(`<h2>Preço: R$${livro.precoComDesconto()}</h2>`)
-$('body').append(`<h2>Preço: R$${livro.precoComDesconto()}</h2>`)
